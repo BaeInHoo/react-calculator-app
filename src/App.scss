@@ -2,8 +2,8 @@
 
 $color: #161122;
 $btn-color: lighten($color, 8%);
-$digit-btn-color: lighten($color, 8%);
-$operation-btn-color: lighten($color, 8%);
+$digit-btn-color: lighten($color, 20%);
+$operation-btn-color: lighten($color, 40%);
 
 body {
   font-family: 'Inter', sans-serif;
@@ -17,5 +17,42 @@ body {
   width: 450px;
   margin: auto;
   gap: 1.5rem;
-  align-content: center;
+  align-content: start;
+  justify-content: end;
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+
+  .output {
+    grid-column: 1 / -1;
+    color: white;
+    text-align: right;
+    font-size: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-weight: 200;
+    overflow: hidden;
+  }
+
+  button {
+    border: none;
+    background-color: $btn-color;
+    color: white;
+    font-size: 40px;
+    border-radius: 40px;
+
+    &:hover {
+      opacity: .8;
+      cursor: pointer;
+    }
+
+    &.digit {
+      background-color:  $digit-btn-color;
+    }
+
+    &.operation {
+      background-color: $operation-btn-color;
+    }
+  }
 }
+
