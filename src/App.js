@@ -1,9 +1,10 @@
 import './App.scss';
 import { Backspace } from 'tabler-icons-react';
 import { useReducer } from 'react';
+import { reducer } from './stores/reducer';
 
 function App() {
-  const [{currentOperand}, dispatch] = useReducer(reducer, {currentOperand: 0});
+  const [{ currentOperand }, dispatch] = useReducer(reducer, {currentOperand: 0});
 
   return (
     <div className='cal-app'>

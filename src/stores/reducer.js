@@ -1,4 +1,5 @@
-const reducer = (state, {type, payload}) => [
+const reducer = (state, {type, payload}) => {
+  // eslint-disable-next-line default-case
   switch (type) {
     case "add-digit":
       if(payload.digit === '0' && state.currentOperand == '0') return state;
@@ -17,8 +18,12 @@ const reducer = (state, {type, payload}) => [
       }
 
     case 'remove':
-      return { currentOperand: state.currentOperand.length === 1 ? 0 : state.currentOperand }
+      if(state.currentOperand === 0) return state;
+      
+      return { currentOperand: state.currentOperand.length === 1 ? 0 : state.currentOperand.slice(0, 1) }
+
+    case 'clear':
+      return { currentOperand: 0 }
   }
 
-
-]
+}
