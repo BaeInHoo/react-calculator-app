@@ -1,7 +1,7 @@
 import './App.scss';
 import { Backspace } from 'tabler-icons-react';
 import { useReducer } from 'react';
-import { reducer } from './stores/reducer';
+import { reducer } from './reducers/reducer';
 
 function App() {
   const [{ currentOperand }, dispatch] = useReducer(reducer, {currentOperand: 0});
