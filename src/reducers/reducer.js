@@ -10,7 +10,7 @@ const reducer = (state, {type, payload}) => {
     case 'add-operation':
       if(state.currentOperand == null || isNaN(state.currentOperand[state.currentOperand.length - 1])) return state;
 
-      return { currentOperand: `${state.currentOperand || ''}${payload.digit}` }
+      return { currentOperand: `${state.currentOperand || ''}${payload.operation.replace('x', '*')}` }
 
     case 'result':
       return {
@@ -27,3 +27,5 @@ const reducer = (state, {type, payload}) => {
   }
 
 }
+
+export { reducer }
